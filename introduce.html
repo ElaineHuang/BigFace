@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html>
+   <head>
+      <meta charset = "utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>大臉仔身世</title>
+	  <script src = "js/createjs-2013.02.12.min.js"></script>
+	  <link href="css/animate.min.css" rel="stylesheet">
+	  <link href="css/reset.css" rel="stylesheet" />
+	  <style type = "text/css">
+         body { 
+				background-image: url(images/house.jpg);
+			  }
+		.wood {
+				width: 350px; height: auto;
+				position: relative;
+				left: 50px;
+			  }
+			  
+		.bf {
+				width: 300px; height = auto;
+				position: relative;
+				left: 50px;
+			}
+		
+				
+		 p { 
+				color: white; font-family:Microsoft JhengHei;
+				font-size: 22px;
+				margin: 5px;
+   		   }
+		
+		 .back { 
+				border-radius: 50%;
+				border:white 5px solid; 
+				width: 150px;
+				height: 150px; 
+				position: absolute; 
+				left: 75%;
+				top: 0%;
+				z-index: 5;
+				background: rgba(255,255,255,0.6);
+				transition: 1s;
+				}
+		.back:hover {
+					background: white;
+					}
+		#return {
+					width: 150px;
+					height: 150px; 
+				}
+		.story {
+					width: 50%;
+					height: auto;
+					position: relative; 
+					left: 400px;
+					bottom: 450px;
+					z-index: 3;
+					background: rgba(105,105,105,0.6);
+					transition: all 0.5s;
+					padding: 20px;
+			   }
+					
+		.story:hover {
+						background: rgba(105,105,105,0.9);
+					 }
+		
+		
+		@media screen and (min-width: 979px) and (max-width: 1200px) {
+		
+		p { 
+				font-size: 18px;
+   		   }
+		   
+		.back { 
+				width: 150px;
+				height: 150px; 
+				left:80%;
+				top: 0%;
+				}
+		#return {
+					width: 150px;
+					height: 150px; 
+				}
+		}
+		
+		@media screen and (min-width: 767px) and (max-width: 979px) { 
+		p { 
+				font-size: 16px;
+   		   }
+		   
+		.wood {
+				width: 300px; height: auto;
+				left: 5%;
+			  }
+			  
+		.bf {
+				width: 250px; height = auto;
+				left: 5%;
+			}
+			
+		.story {
+					width: 50%;
+					height: auto;
+					left: 350px;
+					bottom: 420px;
+			   }
+			   
+		.back { 
+				width: 100px;
+				height: 100px; 
+				left:80%;
+				top: 0%;
+				}
+		#return {
+					width: 100px;
+					height: 100px; 
+				}
+		}
+		
+		@media screen and (min-width: 450px) and (max-width: 767px) { 
+		
+		.bf {
+				display:none;
+			}
+		.wood {
+				width: 300px; height: auto;
+				left: 20%;
+			  }
+		p { 
+				font-size: 18px;
+   		   }
+		.story {
+					width: 90%;
+					height: auto;
+					left: 0px;
+					right: 0px;
+					margin: auto;
+					top: 10px;
+					
+			   }
+		.back { 
+				width: 100px;
+				height: 100px; 
+				left:80%;
+				top: 20%;
+				}
+		#return {
+					width: 100px;
+					height: 100px; 
+				}
+		}
+		
+		@media screen and (max-width: 450px) { 
+		
+		.bf {
+				display:none;
+			}
+		.wood {
+				width: 250px; height: auto;
+				left: 10%;
+			  }
+		p { 
+				font-size: 18px;
+   		   }
+		.story {
+					width: 80%;
+					height: auto;
+					left: 0px;
+					right: 0px;
+					margin: auto;
+					top: 10px;
+			   }
+			   
+		.back { 
+				width: 80px;
+				height: 80px; 
+				left:70%;
+				top: 20%;
+				}
+		#return {
+					width: 80px;
+					height: 80px; 
+				}
+		}
+	  </style>
+	  <script src="js/jquery-1.7.1.js"></script>
+	  <script language="JavaScript"> 
+	  $(document).ready(function() {
+	  createjs.Sound.registerSound("introduce.mp3","introducemusic");
+	  createjs.Sound.play("introducemusic");
+	  $("#wood").hover(
+            function() {
+			    $(this).addClass('swing animated wood');
+				
+            },
+            function() {
+				$(this).removeClass();
+				$(this).addClass('wood');
+            }
+         );
+	
+	   $("#bf").hover(
+            function() {
+			   $(this).addClass('pulse animated bf');
+            },
+            function() {
+				$(this).removeClass();
+				$(this).addClass('bf');
+            }
+         );
+		 
+		$("#return").hover(
+            function() {
+			    $(this).addClass('rubberBand animated');
+				
+            },
+            function() {
+				$(this).removeClass();
+            }
+         );
+	  });
+	  </script>
+   </head>
+   <body>
+   <div><img src = "images/wood.png" alt = "image" id = "wood" class = "wood"></div><br />
+	<div><img src = "images/bf_c.png"  alt = "image" id = "bf" class = "bf"></div>
+    <div id = "story" class = "story">
+	<p>大臉仔從小</p>
+	<p>就因為臉很大的關係，就不停地被同學嘲笑</p>
+	<p>直到她長大了以後，也因為外貌的關係讓她找工作格外困難</p>
+	<p>終於好不容易有了一份工作，但主管總是看她很不順眼</p>
+	<p>有一天，她在上班的時候，原本只是在茶水間倒開水</p>
+	<p>這時，主管突然進來，大臉仔閃避不及，茶水間又非常狹窄</p>
+	<p>結果臉就不小心撞到主管，導致主管手上咖啡打翻了</p>
+	<p>而且還剛剛好就灑在一份很重要的文件上面</p>
+	<p>主管在一怒之下，就把大臉仔給開除了</p>
+	<p>傷心的大臉仔漫無目的地走在街上，突然發現有一間美容醫院</p>
+	<p>想著活到現在都因為這張大臉，導致做什麼事都很不順利</p>
+	<p>她也想跟正常人一樣，要是能讓臉變小一點就好了</p>
+	<p>於是她就下定決心，走進了那間美容醫院。</p>
+	</div>
+	
+	<div class = "back"><a href = "index.html"><img src = "images/indexreturn.png" id = "return"></a></div>
+   </body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html>
+   <head>
+      <meta charset = "utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>大臉仔</title>
+	  <link href="css/animate.min.css" rel="stylesheet">
+	  <link href="css/reset.css" rel="stylesheet" />
+	  <link href="index.css" rel="stylesheet" />
+	  <script src = "js/createjs-2013.02.12.min.js"></script>
+	  <script src="js/jquery-1.7.1.js"></script>
+	  </script>
+	  <script language="JavaScript"> 
+	   $(document).ready(function() {
+	   createjs.Sound.registerSound("by_chance.mp3","sound");
+	   createjs.Sound.registerSound("button.wav","btn");
+	   createjs.Sound.registerSound("index.mp3","indexmusic");
+	   createjs.Sound.registerSound("blackout5.mp3","piano");
+	   $("#catch").hide(); $("#doctor").hide(); $("#smart").hide(); $("#story1").hide();
+	   createjs.Sound.play("indexmusic");
+	   $( window ).resize(function() {
+		 
+		 if($(window).width()>480)
+		 {
+		  $("#story1").css("width","400px");
+		  $('#back1,#back2,#back3,#catch,#doctor,#smart').css({"width":"100px","height":"100px"});
+		 }
+		 else
+		 {
+		  $('#back1,#back2,#back3,#catch,#doctor,#smart').css({"width":"100px","height":"100px"});		  
+		  $("#story1").css("width","300px");
+		  
+		 }
+		 
+		 if($(window).width()>767)
+		 {
+		  $("#catch,#doctor,#smart").css({"width":"150px","height":"150px"});
+		  $("#story1").css("width","400px");
+		 }
+		 
+		 if($(window).width()>979)
+		 {
+		  $('#back1,#back2,#back3').css({"width":"150px","height":"150px"});
+		  $("#catch,#doctor,#smart").css({"width":"200px","height":"200px"});
+		  $("#story1").css("width","600px");
+		 }
+		 if($(window).width()>1200)
+		 {
+		  $('#back1,#back2,#back3').css({"width":"200px","height":"200px"});
+		  $("#catch,#doctor,#smart").css({"width":"250px","height":"250px"});
+		  $("#story1").css("width","600px");
+		 } 
+	   });
+	   
+	   $("#wood").hover(
+            function() {
+			    $(this).addClass('swing animated');
+				createjs.Sound.play("sound");
+            },
+            function() {
+				$(this).removeClass();
+            }
+         );
+	
+	   $("#bf").hover(
+            function() {
+			   $(this).addClass('pulse animated');
+            },
+            function() {
+				$(this).removeClass();
+            }
+         );
+		 
+		$("#circle1").hover(
+            function() {
+			   $("#catch").show().removeClass().addClass('rotateIn animated match');
+			   circlehover($('#back1'));
+			   createjs.Sound.play("btn");
+            },
+            function() {
+				$("#catch").addClass('rotateOut animated match');
+			    circleself($('#back1'));
+			}
+        );
+	    
+		$("#circle2").hover(
+            function() {
+			   $("#doctor").show().removeClass().addClass('rotateIn animated match');
+			   circlehover($('#back2'));
+			   createjs.Sound.play("btn");
+            },
+            function() {
+				$("#doctor").addClass('rotateOut animated match');
+				circleself($('#back2'));
+			}
+        );
+		
+		$("#circle3").hover(
+            function() {
+			   $("#smart").show().removeClass().addClass('rotateIn animated match');
+			  circlehover($('#back3'));
+			  createjs.Sound.play("btn");
+            },
+            function() {
+				$("#smart").addClass('rotateOut animated match');
+				circleself($('#back3'));
+			}
+        );
+		
+		$("#story").hover(
+            function() {
+			   $("#story1").show().removeClass().addClass('tada animated storymatch');	
+				createjs.Sound.play("piano");
+            },
+            function() {
+				$("#story1").addClass('bounceOut animated');				
+			}
+        );
+		});
+		
+		function circlehover(back)
+		{
+		   
+		   if($(window).width()>767)
+		   {
+		   back.css({"width":"150px","height":"150px"});
+		   }
+		   else
+		   {
+		   back.css({"width":"100px","height":"100px"});
+		   }
+		   if($(window).width()>979)
+		   {
+		   back.css({"width":"200px","height":"200px"});
+		   }
+		   if($(window).width()>1200)
+		   {
+		   back.css({"width":"250px","height":"250px"});
+		   }
+		}
+		
+		function circleself(back)
+		{
+			
+			if($(window).width()>767)
+			{
+				back.css({"width":"100px","height":"100px"});
+			}
+			else 
+			{
+				back.css({"width":"100px","height":"100px"});
+			}
+			if($(window).width()>979)
+			{
+				back.css({"width":"150px","height":"150px"});
+			}
+			if($(window).width()>1200)
+			{
+				back.css({"width":"200px","height":"200px"});
+			}
+		}
+		
+	  </script>
+   </head>
+   <body>
+	<div><img src = "images/wood.png" alt = "image" id = "wood" ></div><br />
+	<div><img src = "images/bf.png"  alt = "image" id = "bf"></div>
+	<div id="circle1" class="bounceInRight animated circle circle-one"><a href = "catch.html"><image src = "images/catchword.png" width = "250" alt = "image" id = "catch"></a></div>
+	<div id="circle2" class="bounceInRight animated circle circle-two"><a href = "operation.html"><image src = "images/doctorword.png" width = "250" alt = "image" id = "doctor"></a></div>
+	<div id="circle3" class="bounceInRight animated circle circle-three"><a href = "smart1.html"><image src = "images/smartword.png" width = "250" alt = "image" id = "smart"></a></div>
+	<div id="back1" class="bounceInRight animated circle back-one"></div>
+	<div id="back2" class="bounceInRight animated circle back-two"></div>
+	<div id="back3" class="bounceInRight animated circle back-three"></div>
+	<div id="story" class="bounceInRight animated story story-purple"><a href = "introduce.html"><image src = "images/introduce1.png" width = "600px" alt = "image" id = "story1"></a></div>
+	<div id="storyback" class="bounceInRight animated story storyback"></div>
+   </body>
+</html>
