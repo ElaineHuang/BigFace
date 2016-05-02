@@ -1,8 +1,8 @@
-# BigFace
+BigFace
 
-This is my first RWD site.
+This is my first collection.
 
-You can click index.html to start playing it.
+No framework.
 
 Chinese name is "大臉仔".
 
