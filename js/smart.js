@@ -217,7 +217,7 @@ if(count > 29)
 	$("#add").removeClass().addClass("result bounceInRight animated").text("your score: " + total); 
 	}, 2000);
 	
-	setTimeout(function(){ 
+	setTimeout(function() { 
 	if(total > 5000)
 	{
 	$("p").text("You Win!!").addClass("bounceInLeft animated");
@@ -228,18 +228,6 @@ if(count > 29)
 	$("p").text("You Lose!!").addClass("bounceInLeft animated");
 // 	createjs.Sound.play("lose");
 	}
-	
-	var again =document.createElement("img");
-	again.src = "images/again.png";
-	var index =document.createElement("img");
-	index.src = "images/return.png";
-	document.body.appendChild(again);
-	document.body.appendChild(index);
-	again.setAttribute("class", "Ragain bounceInRight animated");
-	index.setAttribute("class", "Lreturn bounceInLeft animated");
-	again.onclick=function(){ location.href="smart1.html"; };
-	index.onclick=function(){ location.href="index.html"; };
-	
 	}, 2500);
  }
 }
