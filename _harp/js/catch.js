@@ -13,30 +13,30 @@ reSize();
 $("#catch,#escape,#start,#rightpin,#operation,#again,#return").hide();
 $("#bf").animate({left: bfleft},800, 
 function(){ 
-$(this).attr('src','../images/bf_c.png');
+$(this).attr('src','images/bf_c.png');
 $("#bf").animate({
 width:bfbwidth,
 height:"auto",
 },"slow"); 
 $("#leftpin").animate({right:pinright},800,
 function(){
-$("#bf").attr('src','../images/rightwalk.png');
+$("#bf").attr('src','images/rightwalk.png');
 $("#bf").animate({left: bfleft},800,
 function(){
-$(this).attr('src','../images/bf_c.png');
+$(this).attr('src','images/bf_c.png');
 $("#bf").animate({width:bfawidth,height:'auto'},800,
 function(){
-$("#bf").attr('src','../images/leftwalk.png');
+$("#bf").attr('src','images/leftwalk.png');
 $("#bf").animate({left:'-500px'},800,
 function(){
 $("#escape").show();
 $("#start").show().addClass("flip animated");
 $("#start").hover(
     function() {
-       $(this).attr("src","../images/stargamehover.png");
+       $(this).attr("src","images/stargamehover.png");
     },
     function() {
-       $(this).attr("src","../images/stargame.png");
+       $(this).attr("src","images/stargame.png");
     }
  );
  
@@ -108,7 +108,7 @@ function GameResult()
 {
 if(count > 15)
 {
-$("#bf").attr("src","../images/shyface1.png");
+$("#bf").attr("src","images/shyface1.png");
 $("#bf").animate({left:( $(window).width()  - bfbwidth ) / 2,width:bfbwidth,height:'auto'},500,
 function()
 {
@@ -134,18 +134,18 @@ function buttonshow()
  $("#again").show().addClass("bounceInRight animated");
  $("#return").hover(
     function() {
-       $(this).attr("src","../images/return1.png");
+       $(this).attr("src","images/return1.png");
     },
     function() {
-       $(this).attr("src","../images/return.png");
+       $(this).attr("src","images/return.png");
     }
  );
  $("#again").hover(
     function() {
-       $(this).attr("src","../images/again1.png");
+       $(this).attr("src","images/again1.png");
     },
     function() {
-       $(this).attr("src","../images/again.png");
+       $(this).attr("src","./../images/again.png");
     }
  );
 
@@ -184,7 +184,7 @@ result.parentNode.insertBefore( objectDiv, result );
 
 objectDiv.onclick=function()
 {
-  objectDiv.style.background="url(../images/beat.png)";
+  objectDiv.style.background="url(images/beat.png)";
   objectDiv.style.backgroundSize= "cover";
   count++;
 };
