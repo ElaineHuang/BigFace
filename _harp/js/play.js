@@ -1,3 +1,111 @@
+$(document).ready(function() {
+  //createjs.Sound.registerSound("bite.mp3","operationmusic");
+  //createjs.Sound.registerSound("cat_like1a.mp3","click");
+  //createjs.Sound.play("operationmusic");
+  
+  $( window ).resize(function() {
+  
+	resize();
+  
+  });
+  
+  $("#left,#lefthand,#right,#righthand").hide();
+  $("#please").hover(
+        function() {
+		   $(this).addClass('pulse animated');
+        },
+        function() {
+			$(this).removeClass();
+        }
+     );
+  
+  $("#bf").animate({left:'25%'},1000).queue(function(next) { $(this).attr('src','images/bf_c.png'); next(); });
+   
+  $("#bf").animate({
+	width:'50%',
+	height:'100%',
+	},"slow").queue(function(next) { resize(); next(); }); 
+	
+  
+  $("#bf").hover(
+        function() {
+		   $(this).addClass('pulse animated');
+        },
+        function() {
+			$(this).removeClass();
+        }
+     );
+	 
+  $("#beauty").delay(1000).animate({left:'5%'}, 1000);
+  $("#modify").delay(1000).animate({right:'5%'}, 1000);
+  $("#please").delay(1500).animate({left:'5%'}, 1000);
+  
+  $("#beauty").hover(
+        function() {
+           $(this).attr("src","images/beauty1.png");
+        },
+        function() {
+           $(this).attr("src","images/beauty.png");
+        }
+     );
+	$("#modify").hover(
+        function() {
+           $(this).attr("src","images/modify1.png");
+        },
+        function() {
+           $(this).attr("src","images/modify.png");
+        }
+     );
+	$("#beauty").click(function(){
+	// createjs.Sound.play("click");
+	 $("#lefthand,#righthand").show();
+	$("#lefthand").animate({bottom:'0px',width:'300px',height:'450px',}, 800);
+	$("#righthand").animate({bottom:'0px',width:'300px',height:'450px'}, 800);
+	$("#bf").delay(1000).queue(function(next) { $(this).attr('src','images/pain.jpg'); next(); })
+	$("#lefthand").animate({bottom:'-400px',width:'100',height:'300',}, 800);
+	$("#righthand").animate({bottom:'-400px',width:'100',height:'300',}, 800);
+	$("#bf").delay(700).queue(function(next) { $(this).attr('src','images/afterpain.png'); next(); }).queue(function(next) { beauty(); $("#lefthand").hide(); $("#righthand").hide();next(); })
+	
+	});
+	
+	$("#modify").click(function(){
+	// createjs.Sound.play("click");
+	$("#left,#right").show();
+	$("#left").animate({left:'0px',width:'450px',height:'300px',}, 1000);
+	$("#right").animate({right:'0px',width:'450px',height:'300px',}, 1000);
+	$("#bf").delay(1000).queue(function(next) { $(this).attr('src','images/poo.png'); next(); })
+	$("#left").animate({left:'-400px',width:'300',height:'100',}, 1000);
+	$("#right").animate({right:'-400px',width:'300',height:'100',}, 1000);
+	$("#bf").delay(700).queue(function(next) { $(this).attr('src','images/fighting.png'); next(); }).queue(function(next) { modify(); next(); $("#left").hide(); $("#right").hide(); })
+	
+	});
+});
+
+function resize() {
+  if($(window).width()>480)
+  {
+	$('#bf').css({"width":"70%","height":"90%","left":"25%"});
+	$('#please').css({"width":"300px","height":"auto"});
+	$('#beauty,#modify').css({"width":"230px","height":"60px","bottom":"10px"});
+  }
+  else
+  {
+	 $('#bf').css({"width":"100%","height":"80%","left":"0","right":"0"});
+	 $('#please').css({"width":"300px","height":"auto"});
+	 $('#beauty').css({"width":"270px","height":"60px","bottom":"50px"});
+	 $('#modify').css({"width":"270px","height":"60px","bottom":"0px"});
+	 
+  
+  }
+  if($(window).width()>767)
+  {
+	$('#bf').css({"width":"50%","height":"100%","left":"25%"});
+	$('#please').css({"width":"350px","height":"auto"});
+	$('#beauty,#modify').css({"width":"350px","height":"80px","bottom":"10px"});
+  }
+
+}
+
 var beautynumber = 0;
 var modifynumber = 0;
 

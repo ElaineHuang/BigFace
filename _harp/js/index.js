@@ -41,7 +41,9 @@ $(document).ready(function() {
 	  $("#story1").css("width","600px");
 	 } 
 	});
-	
+	$('#back1,#back2,#back3').css({"width":"200px","height":"200px"});
+    $("#catch,#doctor,#smart").css({"width":"250px","height":"250px"});
+    $("#story1").css("width","600px");
 	$("#wood").hover(
 	    function() {
 		    $(this).addClass('swing animated');
