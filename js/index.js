@@ -9,7 +9,8 @@ $(document).ready(function() {
 	$("#story1").hide();
 	
 	rwdResize();
-	createjs.Sound.play("index_music");
+	
+	createjs.Sound.on("fileload", loadHandler, this);
 	
 	$( window ).resize(function() {
 	 rwdResize();
@@ -80,6 +81,10 @@ $(document).ready(function() {
 		}
 	);
 });
+
+function loadHandler() {
+     createjs.Sound.play("index_music");  // play using id.  Could also use full source path or event.src.
+ }
 
 function circlehover(back)
 {

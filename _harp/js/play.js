@@ -1,7 +1,8 @@
 $(document).ready(function() {
   createjs.Sound.registerSound("media/bite.mp3","operationmusic");
   createjs.Sound.registerSound("media/cat_like1a.mp3","click");
-  createjs.Sound.play("operationmusic");
+  
+  createjs.Sound.on("fileload", loadHandler, this);
   
   $( window ).resize(function() {
   
@@ -222,4 +223,8 @@ if(modifynumber == 5)
 
 }
 
+}
+
+function loadHandler() {
+	createjs.Sound.play("operationmusic");
 }

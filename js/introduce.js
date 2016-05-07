@@ -1,6 +1,8 @@
 $(document).ready(function() {
   createjs.Sound.registerSound("media/introduce.mp3","introducemusic");
-  createjs.Sound.play("introducemusic");
+  
+  createjs.Sound.on("fileload", loadHandler, this);
+  
   $("#wood").hover(
         function() {
 		    $(this).addClass('swing animated wood');
@@ -32,3 +34,7 @@ $(document).ready(function() {
     }
   );
 });
+
+function loadHandler() {
+  createjs.Sound.play("introducemusic");
+}

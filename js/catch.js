@@ -9,7 +9,9 @@ createjs.Sound.registerSound("media/coin05.mp3","click");
 createjs.Sound.registerSound("media/play.mp3","catchmusic");
 createjs.Sound.registerSound("media/small_footsteps.mp3","footsteps");
 reSize();
-createjs.Sound.play("footsteps");
+
+createjs.Sound.on("fileload", loadHandler, this);
+
 $("#catch,#escape,#start,#rightpin,#operation,#again,#return").hide();
 $("#bf").animate({left: bfleft},800, 
 function(){ 
@@ -190,4 +192,8 @@ objectDiv.onclick=function()
   count++;
 };
 return objectDiv;
+}
+
+function loadHandler() {
+  createjs.Sound.play("footsteps");
 }

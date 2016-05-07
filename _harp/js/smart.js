@@ -2,58 +2,46 @@ var originalIDs = [];
 var left;
 var total = 0;
 var count = 0;
+var soundLoadTime = 0;
 $(document).ready(function() {
-createjs.Sound.registerSound("media/circlestart.mp3","start");
-createjs.Sound.registerSound("media/startplay.mp3","play");
-createjs.Sound.registerSound("media/win.mp3","win");
-createjs.Sound.registerSound("media/lose.mp3","lose");
-createjs.Sound.play("start");
-$( window ).resize(function() {
-	leftresize();
-});
-$("#start").hide(); $("#sortable").hide();
-setTimeout(function(){ $(".size").removeClass().addClass("size rollOut animated") }, 1000);
-setTimeout(function(){
-$("#red").removeClass().addClass("rotateIn animated startred");
-$("#yellow").removeClass().addClass("rotateIn animated startyellow");
-$("#purple").removeClass().addClass("rotateIn animated startpurple");
-$("#blue").removeClass().addClass("rotateIn animated startblue");
-$("#start").show().addClass("zoomIn animated");
-$("#start").hover(
-    function() {
-       $(this).attr("src","images/smart/smartstart1.png");
-    },
-    function() {
-       $(this).attr("src","images/smart/smartstart.png");
-    }
- );
-$("#start").click(function(){
-	createjs.Sound.stop("start");
-	createjs.Sound.play("play");
-	$("img").removeClass();
-	$("#red").addClass("rotateOut animated startred");
-	$("#yellow").addClass("rotateOut animated startyellow");
-	$("#purple").addClass("rotateOut animated startpurple");
-	$("#blue").addClass("rotateOut animated startblue");
-	$("#start").addClass("zoomOut animated");
-	setTimeout(function()
-	{ 
-		$("img").hide();
-		startgame();
-		$("#sortable").show().addClass("bounceInDown animated"); 
-		$('ul#sortable li').each(function() {
-		originalIDs.push($(this).attr("id"));
-		});
-	}, 1000);
-		
+	createjs.Sound.registerSound("media/circlestart.mp3","start");
+	createjs.Sound.registerSound("media/startplay.mp3","play");
+	createjs.Sound.registerSound("media/win.mp3","win");
+	createjs.Sound.registerSound("media/lose.mp3","lose");
 	
+	createjs.Sound.on("fileload", loadHandler, this);
 	
-});
-
-}, 2000);
-
-
-
+	$("#game-layout").hide();
+	$("#start").hover(
+	    function() {
+	       $(this).attr("src","images/smart/smartstart1.png");
+	    },
+	    function() {
+	       $(this).attr("src","images/smart/smartstart.png");
+	    }
+	 );
+	$("#start").click(function(){
+		createjs.Sound.stop("start");
+		createjs.Sound.play("play");
+		$("img").removeClass();
+		$("#red").addClass("rotateOut animated startred");
+		$("#yellow").addClass("rotateOut animated startyellow");
+		$("#purple").addClass("rotateOut animated startpurple");
+		$("#blue").addClass("rotateOut animated startblue");
+		$("#start").addClass("zoomOut animated");
+		setTimeout(function()
+		{ 
+			$("img").hide();
+			startgame();
+			$("#sortable").show().addClass("bounceInDown animated"); 
+			$('ul#sortable li').each(function() {
+			originalIDs.push($(this).attr("id"));
+			});
+		}, 1000);
+	});
+	$( window ).resize(function() {
+		leftresize();
+	});
 });
 
 function startgame()
@@ -62,7 +50,7 @@ function startgame()
 	WashCard();
 	leftresize();
 	 
-	 $( "#sortable" ).sortable({
+	$( "#sortable" ).sortable({
 		zIndex: 99,
 		opacity: 0.7,
 		cursorAt: { left: left },
@@ -303,4 +291,29 @@ for (var i = 0; i < els.length; i++)
 	els[i].setAttribute('id',originalIDs[i]);
 }
 
+}
+
+function loadHandler() {
+	initialAnimation();
+}
+
+function initialAnimation() {
+	if(soundLoadTime === 3) {
+		$("#waiting").hide();
+		$("#game-layout").show();
+		createjs.Sound.play("start");
+		$("#start").hide(); 
+		$("#sortable").hide();
+		setTimeout(function() { 
+			$(".size").removeClass().addClass("size rollOut animated");
+		}, 1000);
+		setTimeout(function() {
+		$("#red").removeClass().addClass("rotateIn animated startred");
+		$("#yellow").removeClass().addClass("rotateIn animated startyellow");
+		$("#purple").removeClass().addClass("rotateIn animated startpurple");
+		$("#blue").removeClass().addClass("rotateIn animated startblue");
+		$("#start").show().addClass("zoomIn animated");
+		}, 2000);
+	}
+	soundLoadTime++
 }
