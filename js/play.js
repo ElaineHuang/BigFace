@@ -1,6 +1,6 @@
 $(document).ready(function() {
-  createjs.Sound.registerSound("./../music/bite.mp3","operationmusic");
-  createjs.Sound.registerSound("./../music/cat_like1a.mp3","click");
+  createjs.Sound.registerSound("media/bite.mp3","operationmusic");
+  createjs.Sound.registerSound("media/cat_like1a.mp3","click");
   createjs.Sound.play("operationmusic");
   
   $( window ).resize(function() {

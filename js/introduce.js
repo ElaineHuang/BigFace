@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  createjs.Sound.registerSound("./../music/introduce.mp3","introducemusic");
+  createjs.Sound.registerSound("media/introduce.mp3","introducemusic");
   createjs.Sound.play("introducemusic");
   $("#wood").hover(
         function() {

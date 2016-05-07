@@ -5,9 +5,9 @@ var bfawidth;
 var pinright;
 
 $(document).ready(function() {
-createjs.Sound.registerSound("./../music/coin05.mp3","click");
-createjs.Sound.registerSound("./../music/play.mp3","catchmusic");
-createjs.Sound.registerSound("./../music/small_footsteps.mp3","footsteps");
+createjs.Sound.registerSound("media/coin05.mp3","click");
+createjs.Sound.registerSound("media/play.mp3","catchmusic");
+createjs.Sound.registerSound("media/small_footsteps.mp3","footsteps");
 reSize();
 createjs.Sound.play("footsteps");
 $("#catch,#escape,#start,#rightpin,#operation,#again,#return").hide();
@@ -49,6 +49,7 @@ $("#start").hover(
  Run();
 
  });
+
 
 });
 });

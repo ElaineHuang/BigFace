@@ -3,10 +3,10 @@ var left;
 var total = 0;
 var count = 0;
 $(document).ready(function() {
-createjs.Sound.registerSound("./../music/circlestart.mp3","start");
-createjs.Sound.registerSound("./../music/startplay.mp3","play");
-createjs.Sound.registerSound("./../music/win.mp3","win");
-createjs.Sound.registerSound("./../music/lose.mp3","lose");
+createjs.Sound.registerSound("media/circlestart.mp3","start");
+createjs.Sound.registerSound("media/startplay.mp3","play");
+createjs.Sound.registerSound("media/win.mp3","win");
+createjs.Sound.registerSound("media/lose.mp3","lose");
 createjs.Sound.play("start");
 $( window ).resize(function() {
 	leftresize();

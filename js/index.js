@@ -1,8 +1,8 @@
 $(document).ready(function() {
-	createjs.Sound.registerSound("./../music/by_chance.mp3","sound");
-	createjs.Sound.registerSound("./../music/button.wav","btn");
-	createjs.Sound.registerSound("./../music/index.mp3","index_music");
-	createjs.Sound.registerSound("./../music/blackout5.mp3","piano");
+	createjs.Sound.registerSound("media/by_chance.mp3","sound");
+	createjs.Sound.registerSound("media/button.wav","btn");
+	createjs.Sound.registerSound("media/index.mp3","index_music");
+	createjs.Sound.registerSound("media/blackout5.mp3","piano");
 	$("#catch").hide(); 
 	$("#doctor").hide(); 
 	$("#smart").hide(); 
