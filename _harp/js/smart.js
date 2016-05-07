@@ -3,11 +3,11 @@ var left;
 var total = 0;
 var count = 0;
 $(document).ready(function() {
-// createjs.Sound.registerSound("circlestart.mp3","start");
-// createjs.Sound.registerSound("startplay.mp3","play");
-// createjs.Sound.registerSound("win.mp3","win");
-// createjs.Sound.registerSound("lose.mp3","lose");
-// createjs.Sound.play("start");
+createjs.Sound.registerSound("./../music/circlestart.mp3","start");
+createjs.Sound.registerSound("./../music/startplay.mp3","play");
+createjs.Sound.registerSound("./../music/win.mp3","win");
+createjs.Sound.registerSound("./../music/lose.mp3","lose");
+createjs.Sound.play("start");
 $( window ).resize(function() {
 	leftresize();
 });
@@ -28,8 +28,8 @@ $("#start").hover(
     }
  );
 $("#start").click(function(){
-// 	createjs.Sound.stop("start");
-// 	createjs.Sound.play("play");
+	createjs.Sound.stop("start");
+	createjs.Sound.play("play");
 	$("img").removeClass();
 	$("#red").addClass("rotateOut animated startred");
 	$("#yellow").addClass("rotateOut animated startyellow");
@@ -210,7 +210,7 @@ function result()
 
 if(count > 29)
  {
-// 	createjs.Sound.stop("play");
+	createjs.Sound.stop("play");
 	$("#sortable").hide();
 	$('#red,#yellow,#purple,#blue').hide();
 	setTimeout(function(){ 
@@ -221,12 +221,12 @@ if(count > 29)
 	if(total > 5000)
 	{
 	$("p").text("You Win!!").addClass("bounceInLeft animated");
-// 	createjs.Sound.play("win");
+	createjs.Sound.play("win");
 	}
 	else
 	{
 	$("p").text("You Lose!!").addClass("bounceInLeft animated");
-// 	createjs.Sound.play("lose");
+	createjs.Sound.play("lose");
 	}
 	}, 2500);
  }

@@ -5,11 +5,11 @@ var bfawidth;
 var pinright;
 
 $(document).ready(function() {
-//createjs.Sound.registerSound("coin05.mp3","click");
-//createjs.Sound.registerSound("play.mp3","catchmusic");
-//createjs.Sound.registerSound("small_footsteps.mp3","footsteps");
+createjs.Sound.registerSound("./../music/coin05.mp3","click");
+createjs.Sound.registerSound("./../music/play.mp3","catchmusic");
+createjs.Sound.registerSound("./../music/small_footsteps.mp3","footsteps");
 reSize();
-//createjs.Sound.play("footsteps");
+createjs.Sound.play("footsteps");
 $("#catch,#escape,#start,#rightpin,#operation,#again,#return").hide();
 $("#bf").animate({left: bfleft},800, 
 function(){ 
@@ -41,7 +41,7 @@ $("#start").hover(
  );
  
  $("#start").click(function(){
- //createjs.Sound.play("click");
+ createjs.Sound.play("click");
  $("#start").remove().addClass("zoomOut animated");
  $("#escape").addClass("bounceOutRight animated");
  $("#leftpin").addClass("bounceOutRight animated");
@@ -92,7 +92,7 @@ reSize();
 
 function Run()
 {
-//createjs.Sound.play("catchmusic");
+createjs.Sound.play("catchmusic");
 var ball = new Array(10);
 for(var i = 0; i < 20; i++)
 {

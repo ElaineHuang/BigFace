@@ -1,53 +1,24 @@
 $(document).ready(function() {
-	// createjs.Sound.registerSound("./by_chance.mp3","sound");
-	// createjs.Sound.registerSound("./button.wav","btn");
-	// createjs.Sound.registerSound("./index.mp3","indexmusic");
-	// createjs.Sound.registerSound("./blackout5.mp3","piano");
+	createjs.Sound.registerSound("./../music/by_chance.mp3","sound");
+	createjs.Sound.registerSound("./../music/button.wav","btn");
+	createjs.Sound.registerSound("./../music/index.mp3","index_music");
+	createjs.Sound.registerSound("./../music/blackout5.mp3","piano");
 	$("#catch").hide(); 
 	$("#doctor").hide(); 
 	$("#smart").hide(); 
 	$("#story1").hide();
-	// createjs.Sound.play("indexmusic");
+	
+	rwdResize();
+	createjs.Sound.play("index_music");
+	
 	$( window ).resize(function() {
-	 
-	 if($(window).width()>480)
-	 {
-	  $("#story1").css("width","400px");
-	  $('#back1,#back2,#back3,#catch,#doctor,#smart').css({"width":"100px","height":"100px"});
-	 }
-	 else
-	 {
-	  $('#back1,#back2,#back3,#catch,#doctor,#smart').css({"width":"100px","height":"100px"});		  
-	  $("#story1").css("width","300px");
-	  
-	 }
-	 
-	 if($(window).width()>767)
-	 {
-	  $("#catch,#doctor,#smart").css({"width":"150px","height":"150px"});
-	  $("#story1").css("width","400px");
-	 }
-	 
-	 if($(window).width()>979)
-	 {
-	  $('#back1,#back2,#back3').css({"width":"150px","height":"150px"});
-	  $("#catch,#doctor,#smart").css({"width":"200px","height":"200px"});
-	  $("#story1").css("width","600px");
-	 }
-	 if($(window).width()>1200)
-	 {
-	  $('#back1,#back2,#back3').css({"width":"200px","height":"200px"});
-	  $("#catch,#doctor,#smart").css({"width":"250px","height":"250px"});
-	  $("#story1").css("width","600px");
-	 } 
+	 rwdResize();
 	});
-	$('#back1,#back2,#back3').css({"width":"200px","height":"200px"});
-    $("#catch,#doctor,#smart").css({"width":"250px","height":"250px"});
-    $("#story1").css("width","600px");
+	
 	$("#wood").hover(
 	    function() {
 		    $(this).addClass('swing animated');
-			// createjs.Sound.play("sound");
+			createjs.Sound.play("sound");
 	    },
 	    function() {
 			$(this).removeClass();
@@ -67,7 +38,7 @@ $(document).ready(function() {
 	    function() {
 		   $("#catch").show().removeClass().addClass('rotateIn animated match');
 		   circlehover($('#back1'));
-		   //createjs.Sound.play("btn");
+		   createjs.Sound.play("btn");
 	    },
 	    function() {
 			$("#catch").addClass('rotateOut animated match');
@@ -79,7 +50,7 @@ $(document).ready(function() {
 	    function() {
 		   $("#doctor").show().removeClass().addClass('rotateIn animated match');
 		   circlehover($('#back2'));
-		   //createjs.Sound.play("btn");
+		   createjs.Sound.play("btn");
 	    },
 	    function() {
 			$("#doctor").addClass('rotateOut animated match');
@@ -91,7 +62,7 @@ $(document).ready(function() {
 	    function() {
 		   $("#smart").show().removeClass().addClass('rotateIn animated match');
 		  circlehover($('#back3'));
-		  //createjs.Sound.play("btn");
+		  createjs.Sound.play("btn");
 	    },
 	    function() {
 			$("#smart").addClass('rotateOut animated match');
@@ -102,7 +73,7 @@ $(document).ready(function() {
 	$("#story").hover(
 	    function() {
 		   $("#story1").show().removeClass().addClass('tada animated storymatch');	
-			// createjs.Sound.play("piano");
+			createjs.Sound.play("piano");
 	    },
 	    function() {
 			$("#story1").addClass('bounceOut animated');				
@@ -150,4 +121,37 @@ function circleself(back)
 	{
 		back.css({"width":"200px","height":"200px"});
 	}
+}
+
+function rwdResize() {
+	if($(window).width()>480)
+	 {
+	  $("#story1").css("width","400px");
+	  $('#back1,#back2,#back3,#catch,#doctor,#smart').css({"width":"100px","height":"100px"});
+	 }
+	 else
+	 {
+	  $('#back1,#back2,#back3,#catch,#doctor,#smart').css({"width":"100px","height":"100px"});		  
+	  $("#story1").css("width","300px");
+	  
+	 }
+	 
+	 if($(window).width()>767)
+	 {
+	  $("#catch,#doctor,#smart").css({"width":"150px","height":"150px"});
+	  $("#story1").css("width","400px");
+	 }
+	 
+	 if($(window).width()>979)
+	 {
+	  $('#back1,#back2,#back3').css({"width":"150px","height":"150px"});
+	  $("#catch,#doctor,#smart").css({"width":"200px","height":"200px"});
+	  $("#story1").css("width","600px");
+	 }
+	 if($(window).width()>1200)
+	 {
+	  $('#back1,#back2,#back3').css({"width":"200px","height":"200px"});
+	  $("#catch,#doctor,#smart").css({"width":"250px","height":"250px"});
+	  $("#story1").css("width","600px");
+	 } 
 }

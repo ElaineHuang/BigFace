@@ -1,6 +1,6 @@
 $(document).ready(function() {
-//   createjs.Sound.registerSound("introduce.mp3","introducemusic");
-//   createjs.Sound.play("introducemusic");
+  createjs.Sound.registerSound("./../music/introduce.mp3","introducemusic");
+  createjs.Sound.play("introducemusic");
   $("#wood").hover(
         function() {
 		    $(this).addClass('swing animated wood');

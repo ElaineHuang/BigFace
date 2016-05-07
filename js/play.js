@@ -1,7 +1,7 @@
 $(document).ready(function() {
-  //createjs.Sound.registerSound("bite.mp3","operationmusic");
-  //createjs.Sound.registerSound("cat_like1a.mp3","click");
-  //createjs.Sound.play("operationmusic");
+  createjs.Sound.registerSound("./../music/bite.mp3","operationmusic");
+  createjs.Sound.registerSound("./../music/cat_like1a.mp3","click");
+  createjs.Sound.play("operationmusic");
   
   $( window ).resize(function() {
   
@@ -57,7 +57,7 @@ $(document).ready(function() {
         }
      );
 	$("#beauty").click(function(){
-	// createjs.Sound.play("click");
+	createjs.Sound.play("click");
 	 $("#lefthand,#righthand").show();
 	$("#lefthand").animate({bottom:'0px',width:'300px',height:'450px',}, 800);
 	$("#righthand").animate({bottom:'0px',width:'300px',height:'450px'}, 800);
@@ -69,7 +69,7 @@ $(document).ready(function() {
 	});
 	
 	$("#modify").click(function(){
-	// createjs.Sound.play("click");
+	createjs.Sound.play("click");
 	$("#left,#right").show();
 	$("#left").animate({left:'0px',width:'450px',height:'300px',}, 1000);
 	$("#right").animate({right:'0px',width:'450px',height:'300px',}, 1000);
