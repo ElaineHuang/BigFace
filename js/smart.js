@@ -3,6 +3,9 @@ var left;
 var total = 0;
 var count = 0;
 var soundLoadTime = 0;
+var animateTime = 0;
+var animation = ["pulse animated", "bounce animated", "flash animated"];
+
 $(document).ready(function() {
 	createjs.Sound.registerSound("media/circlestart.mp3","start");
 	createjs.Sound.registerSound("media/startplay.mp3","play");
@@ -10,7 +13,9 @@ $(document).ready(function() {
 	createjs.Sound.registerSound("media/lose.mp3","lose");
 	
 	createjs.Sound.on("fileload", loadHandler, this);
-	
+	setTimeout(function() { 
+		duplicateAnimation();
+	}, 1000);
 	$("#game-layout").hide();
 	$("#start").hover(
 	    function() {
@@ -298,7 +303,7 @@ function loadHandler() {
 }
 
 function initialAnimation() {
-	if(soundLoadTime === 3) {
+	if(soundLoadTime > 2) {
 		$("#waiting").hide();
 		$("#game-layout").show();
 		createjs.Sound.play("start");
@@ -316,4 +321,13 @@ function initialAnimation() {
 		}, 2000);
 	}
 	soundLoadTime++
+}
+function duplicateAnimation() {
+	$('#waiting-word').removeClass().addClass(animation[animateTime%3]);
+	setTimeout(function() { 
+		if(!$('#waiting').is(':hidden')) {
+			duplicateAnimation();
+		}
+	}, 2000);
+	animateTime++;
 }
